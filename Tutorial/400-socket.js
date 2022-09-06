@@ -1,0 +1,4 @@
+/*
+socket io is used for real time data transfer
+
+*/
