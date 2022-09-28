@@ -100,7 +100,7 @@ AWS Fault Injection Simulator:
   AWS Fault Injection Simulator (AWS FIS) is a managed service that enables you to perform fault injection experiments on your AWS workloads. Fault injection is based on the principles of chaos engineering. These experiments stress an application by creating disruptive events so that you can observe how your application responds. You can then use this information to improve the performance and resiliency of your applications so that they behave as expected
 
 
-  ssh -i pum file ubuntu@ip address
+  ssh -i pum file ubuntu@ip address /instead of ubuntu ec2-user
   sudo apt update && sudo apt upgrade -y
   ssh -i C:\Users\lijoj\Downloads\onebook.pem ubuntu@13.233.165.209
 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
@@ -156,7 +156,7 @@ AWS Server
    pm2 start  file.js
    pm2 save
    Pm2 auto start after reboot
-     ubuntu@ip-172-31-20-1:~$ pm2 startup
+     ubuntu@18.191.100.128:~$ pm2 startup
      [PM2] Init System found: systemd
      [PM2] To setup the Startup Script, copy/paste the following command:
      sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
@@ -203,9 +203,24 @@ Domain Config
     sudo certbot --nginx
 
 
+AWS IAM
+   Types of security
+      1)IAM(Identify Access Management)
+        This is take care of access management of Organization user
+      2)Amazon Guard Duty
+        Amazon log - This will keep the record of all logs
+      3)Amazon Macle
+        It is for matchine learning. Also used pattern matching
+      4)AWS Config
+        It monitor configuration accross the services
+      5)Cloud trail
+        It is logs tracker every api call are made    
+      
 
-  
+   IAM
+ 
 
+ 
 
   DEV OOPS
      Dev Team : 
@@ -221,4 +236,110 @@ Domain Config
   Testing
   Production
 
+
+1) Region and zone
+  A)Region
+    - a  region means clusted data center
+    How to choose a region
+      - compliance - govermant complains
+      - proximate - most of the users india you can not host in usa
+      - all region will not all service
+      - pricing - it vary from region to region
+   B)Availabilty zone
+        Each availabilty zone is one more data center with redunt power, networking and connectiviy
+       - Each region will availability zone from 2-6
+       - These zone help full something happend to availabity zone number 1
+       - They are connnected high networking bandwith and ultra low networking 
+   C) Edge location
+        Content delived to end users with low latency
+        
+        Global services 
+           IAM, Router 53,Cloud front (CDN), WAF
+        Region scoped
+           EC2, Elastic beanstak, lamda, Rekgion
+2)IAM
+    AWS(Identify Access Management) safeguard access to AWS services and resourses and create and manager users and groups and give permisson grant or deny services
+       Benefit of IAM
+       -scalability on security data 
+       -Reduce human config
+       -Automation reduce human config error
+       
+     Working of IAM
+       principal
+       authentication = who are you?
+       Request 
+       Authorization
+       Actions
+       Resources
+     Component users
+       AWS account user 
+
+     -Root account. You should not use account. create user I am
+    - Group -> group is associated many users and attach policy with the group
+      User - operator => user always attach to a group. group attach to policy
+      User - can directly attached to the policy and he will be out of the group
+      Policy - policy is json format which describe what allowed and what to deny
+            - it is define accessmanagment
+            - it follow least permissoin
+            consist of 
+               -version 2012-10-17
+               id 
+               statment 
+                    sid:identfier
+                    effect = allow/deny
+                    principle = arn roo
+                    actoin  = list of policie allow or deny
+                    condtion = when policy effective from
+                    resource = list of resource action applied to
+   MFA(Password policy)
+      strong password policy secure your account
+    -set minimu letter
+    -require specific character types
+      -includding upper case letter
+      - lower case letter
+      -number
+      -non alpha number char
+    -allow IAM user change own password
+    -Require uses to change your passowrd after sometime
+    -Prevent password use
+       IAM = setting=> password policy
+    -MFA = Multi factor authentication
+       1)- security you own and device
+        aws uses 
+           virtual mfa device
+               Google authenticateor
+               Authy
+      2) Universal 2nd factor(u2f) securty key
+         Yubikey = third party device
+      3)Hardware Key Fob MFA device
+           Account (on top side bar)=> security creditial
+  3)Way to access aws
+          Aws managment console (Website password and username)
+          AWS Cli(Command line tool)
+          AWS SDK(Software development kit)
+          Access keys are generated through console log
+          It is like password. 
+           Access ke as = username
+           Secret access key = password
+
+  4) Way to configure cli
+      AWS Access Key ID [****************F5BA]:
+      AWS Secret Access Key [****************PatQ]:
+      Default region name [us-east-2]:
+      Default output format [None]: json
+      You can also use cloud shell for instead of CLI
+   5) Roles
+      Certain service required certain permision on behalf your account. Those case roles will be created
+      It is not intended to use by physical people. It is used for some aws purposes
+      Ec2 instance may want to perform some action in aws. In that case we use role. it is IAM role to get permission
+    6)Credit report to get all the creditial status of the user
+    7) Best way to use IAM
+        -use root account to setup and remaing activity should use alias account
+        -Follow strict password rule
+        -New use comes use new account. Do not give existing user account
+        - Enforce Multi Factor Authentication (MFA)     
+3)Budget
+      - you see bill Billing dashboard
+      -click on budget and set alert if budge exceed
+4)
  */

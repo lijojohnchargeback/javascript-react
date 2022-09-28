@@ -16,8 +16,21 @@ Two ways we can build object
       }
       car.color = "blue"
       car.show()
+  B) Object constructor
+        const car = new Object()
+        car.color = green
+        car.brand = "honada"
+
+        accessing properties
+          name = coar.name
+        accessing method
+          function = function()
+        adding property
+          mobile.mobileName="dafda"
+        Delete object
+          delete.mobile.name
       console.log(car.manufacture())
-  B) Obejct.create
+  C) Obejct.create
         let car ={
           name:"Hundai",
           year:2007,
@@ -35,21 +48,6 @@ Two ways we can build object
         }
         // Maruthi does not contain all the methods and properties. We need to create new one. Also it access prototype of car object
         console.log(Maruthi.ageBook())
-
-   C) Object constructor
-        const car = new Object()
-        car.color = green
-        car.brand = "honada"
-
-        accessing properties
-          name = coar.name
-        accessing method
-          function = function()
-        adding property
-          mobile.mobileName="dafda"
-        Delete object
-          delete.mobile.name
-
   D) constructor function
         Object instances are created using constructure function. 
         
@@ -73,7 +71,6 @@ Two ways we can build object
           console.log(data.profile())
 
   E) constructor function with prototype
-
           let Student = function(name,email,classes){
           this.name = name
           this.email = email,
@@ -91,7 +88,18 @@ Two ways we can build object
         console.log(john.login(28))
 
   F) ES6 Class
-
+      class House {
+        constructor(name,email,age){
+          this.name = name;
+          this.email = email;
+          this.age = age
+        }
+        getFullName(){
+          return `${this.name} is my name and ${this.email} is my email addres`
+        }
+      }
+      const Lijo = new House("Lijo","lijojohnrbs@gmail.com",8)
+      console.log(Lijo.getFullName())
 
 
   H) Factory function

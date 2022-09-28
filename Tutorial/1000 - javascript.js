@@ -1,4 +1,5 @@
 /**
+ * Whenever javascript run execution contest will be crated
  * Javascript global execution contest two things
  *  - varialbe enviroment also know as memory. It uses key value pair to store varialbe and function
  *  -Thread of execution also known as code.
@@ -43,7 +44,7 @@
  *               then function invocation
  *
  *        call stack maintain the order of execution of execution conetext
- *
+ *Temporal dead zene - if not hoised the memory will created unitil initilize value 
  *Before start executing memory is allocated to each variable and functions
  * arrow function = arrow function assign to variable it will throw error it throw error is not function
  *
@@ -99,10 +100,10 @@
 E) Cross Origin Resour Sharing (Cors)     
     This is policy from browser you cannot share host from other host.
      For example 
-      www.lijo.com
+      your website name is www.lijo.com
          I canonot access any infrormation from google
-         I cannot access any info from sub domain
-         I cannot access any inform other port
+         I cannot access any info from sub domain such www.sandbox.lijo.com
+         I cannot access any inform other port www.lijo.com:3000
          I cannot access differnt protocal (Http/and https) 
      after cors mechanis resouse shareing common all browser
 
@@ -135,6 +136,77 @@ DOM
     It is a memory using tree structure
 DOM Manupulation
 Window object
+Unary plus operator
+Microtask
+  Microtask is the javascript code which needs to be executed immediately after the currently executing task/microtask is completed. They are kind of blocking in nature. i.e, The main thread will be blocked until the microtask queue is empty. The main sources of microtasks are Promise.resolve, Promise.reject, MutationObservers, IntersectionObservers etc 
+Observable -
+   What are the differences between promises and observables
+      Some of the major difference in a tabular form
+
+      Promises	Observables
+      Emits only a single value at a time	Emits multiple values over a period of time(stream of values ranging from 0 to multiple)
+      Eager in nature; they are going to be called immediately	Lazy in nature; they require subscription to be invoked
+      Promise is always asynchronous even though it resolved immediately	Observable can be either synchronous or asynchronous
+      Doesn't provide any operators	Provides operators such as map, forEach, filter, reduce, retry, and retryWhen etc
+      Cannot be canceled	Canceled by using unsubscribe() method
+Heap
+      Heap(Or memory heap) is the memory location where objects are stored when we define variables. i.e, This is the place where all the memory allocations and de-allocation take place. Both heap and call-stack are two containers of JS runtime. Whenever runtime comes across variables and function declarations in the code it stores them in the Heap.
+        Use memory - allocate memory - remove memory
+
+postMessage
+   postMessage: cors issue in website. embeded opening box etc.
    
-          
+   Security
+    Yes, postMessages can be considered very secure as long as the programmer/developer is careful about checking the origin and source of an arriving message. But if you try to send/receive a message without verifying its source will create cross-site scripting attacks.
+   problem with wild card postMessage(*)
+        The second argument of postMessage method specifies which origin is allowed to receive the message. If you use the wildcard “*” as an argument then any origin is allowed to receive the message. In this case, there is no way for the sender window to know if the target window is at the target origin when sending the message. If the target window has been navigated to another origin, the other origin would receive the data. Hence, this may lead to XSS vulnerabilities.
+        targetWindow.postMessage(message, "*");
+   Avoid receiving postMessage from attackers
+        Since the listener listens for any message, an attacker can trick the application by sending a message from the attacker’s origin, which gives an impression that the receiver received the message from the actual sender’s window. You can avoid this issue by validating the origin of the message on the receiver's end using the “message.origin” attribute. For examples, let's check the sender's origin http://www.some-sender.com on receiver side www.some-receiver.com,
+
+      //Listener on http://www.some-receiver.com/
+      window.addEventListener("message", function(message){
+          if(/^http://www\.some-sender\.com$/.test(message.origin)){
+              console.log('You received the data from valid sender', message.data);
+        }
+      });
+    Can I avoid using postMessages completely
+        You cannot avoid using postMessages completely(or 100%). Even though your application doesn’t use postMessage considering the risks, a lot of third party scripts use postMessage to communicate with the third party service. So your application might be using postMessage without your knowledge.
+    Is postMessages synchronous
+      The postMessages are synchronous in IE8 browser but they are asynchronous in IE9 and all other modern browsers (i.e, IE9+, Firefox, Chrome, Safari).Due to this asynchronous behaviour, we use a callback mechanism when the postMessage is returned
+Paradigm
+    - Paradigm means ways or methods to write code in which solve different problems
+      Imeperative = oldest and follow sequent commad
+          if your friend visitg home details directions way of giving address 1-2-3
+            1)procedure
+                sequetial recipi
+                reusable
+            2)object oriented
+                codes can be broken into classes
+                clases will include related methods and properties
+                also clases can inherit other classes
+                It is based object
+            3)Parellel
+                Many argue that parellel programing not exist in javascript
+                aftrer introduciton of web worker in browser and worker thread in pareller programming
+                It is used cpu intensive worker we use worker thread
+
+          Simple to read, impliment,scalability
+          messy if complex
+
+      Declarative = logic and cocepts, focus on result
+        -feel good
+        -
+          will give address. and visitor will choice how to reach your own
+             1)functional
+                you can write any function without mutating global values
+             2)logical
+                It is not in javascript
+             3)data driven
+                Most of the database programming.
+
+
+
+       
+    JavaScript is a multi-paradigm language, supporting imperative/procedural programming, Object-Oriented Programming and functional programming. JavaScript supports Object-Oriented Programming with prototypical inheritance.
  */

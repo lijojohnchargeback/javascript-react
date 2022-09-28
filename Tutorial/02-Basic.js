@@ -45,7 +45,7 @@
  Not-primiitive =
         1)Object:JavaScript objects are written with curly braces {}.Object properties are written as name:value pairs, separated by commas., Object is collection of property and methods
         2)array : JavaScript arrays are written with square brackets.Array items are separated by commas., The Array object lets you store multiple values in a single variable . These values are called elements
-        3)Reg express - A regular expression is a sequence of characters that define a search pattern. Usually such patterns are used by string-searching algorithms for "find" or "find and replace" operations on strings
+        3)Reg expression - A regular expression is a sequence of characters that define a search pattern. Usually such patterns are used by string-searching algorithms for "find" or "find and replace" operations on strings
     2)The typeof Operator
       You can use the JavaScript typeof operator to find the type of a JavaScript variable.
 
