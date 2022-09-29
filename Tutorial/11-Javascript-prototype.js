@@ -27,4 +27,8 @@ Protop type
  Prototype chain
    - 
 
+Proto-types
+   -Prototype is mechanism in javascript by which javascript inherit properities and methods from another object.
+   
+
 */
