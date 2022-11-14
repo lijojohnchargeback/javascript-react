@@ -54,9 +54,21 @@
         - if we return single value you can remove retun keyword and curly bracket
         let books = ()=> console.log("this is my book")
     F)First class functions
+    In Javascript, functions are first class objects. First-class functions means when functions in that language are treated like any other variable. So that you can pass to another function, return function etc
         -a function assign to a variable
+          let greetings = ()=>{
+            return "Hello"
+          }
         -Passed as an argument
+        let SayHelloToPerson = (greeting,person){
+            return greeting()+ " " + person
+        }
         -Return a function
+        const greetingMaker = (person)=>{
+            return (greeting)=>{
+                return person + " "+ greeting
+            }
+        }
 
 
     G)First order functions
@@ -160,5 +172,8 @@
         it will stop execution
 5) Rest operator
 6) Default parameter
-
+7) Global execution context
+   Whenever javascript file is created global execution context is created. and this. window and window object is  part of glboal execution context. window object contains various properties and mehtods. Also whenver you declare a varaible that aslo become part of window object. Whenver function is invoked new execution context created. There are two things are in functoin execution context 1)this keyword and 2) arguments keyword
+   Each execution context will have two phase. creating phase and exectuing phase
+8)
     */

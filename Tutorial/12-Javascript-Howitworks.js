@@ -44,7 +44,8 @@
  *               then function invocation
  *
  *        call stack maintain the order of execution of execution conetext
- *Temporal dead zene - if not hoised the memory will created unitil initilize value
+ *Temporal dead zone - if not hoised the memory will created unitil initilize value
+   A temporal dead zone (TDZ) is the area of a block where a variable is inaccessible until the moment the computer completely initializes it with a value.
  *Before start executing memory is allocated to each variable and functions
  * arrow function = arrow function assign to variable it will throw error it throw error is not function
  *
@@ -59,10 +60,7 @@
  *undefined
  *scope means access a varaible or function a code
  *
- * Set
- * The Set object lets you store unique values of any type, whether primitive values or object references.
- *
- * The optional chaining operator in JavaScript is convenient as it allows the developer to specify an object's property as being optional, and only return a value if the specified property is not "null" or "undefined" - otherwise return "undefined".
+
  *
  *
  *

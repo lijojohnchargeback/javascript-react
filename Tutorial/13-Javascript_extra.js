@@ -1,6 +1,6 @@
 /*
 1) Debouncing
-  limiting rate of function calls
+  limiting rate of function calls in event
    for example search input. instead of each key stroke you can give time after keyevents and will give suggestion
    debouncing will call if they key press events of both keys are different (3seconds)
   - resizing means only pause some limited then only make call
@@ -26,7 +26,9 @@
          event bubbling = 
              1)child function will called, paretn function will called, master parent function will be called
              2)clicked on parent = parent function will be called, master paretn function will be called
+    Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
          event capturing
+    Event capturing is a type of event propagation where the event is first captured by the outermost element, and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the innermost DOM element.
             1) Master parent will be called , parent called, child called
             2)Master parent will be called parent called
  5)Event delegation
@@ -66,6 +68,33 @@
    -create .json file
    -json parse to convert json format to javascription json.parse()
    - json.stringify() to convert javascript obejct inot json
+8) Optional chaining
+ The optional chaining operator (?.) accesses an object's property or calls a function. If the object is undefined or null, it returns undefined instead of throwing an error.
+    .?
+    let object = {
+      person:{
+        name:"lijo"
+      }
+    }
+    just imagin there is no property like person. Then definitly javascript throw error. To avoid this breaking application we use option chaining.
+    you
+9)nullish coalescing operator (??)
+  It is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand. This can be contrasted with the logical OR (||) operator, which returns the right-hand side operand if the left operand is any falsy value, not only null or undefined.
+  console.log(null ?? true); // true
+  console.log(false ?? true); // false
+  console.log(undefined ?? true); // true
+  
+    let n  = ()=>{
+      return({
+        name:"Lijo",
+        ages:0
+      })
+    }
+    let m = n().ages||400
+    console.log(m) //400
+
+    let c = n().ages??400
+    console.log(c) //0
 
 8) DOM 
     -dom tree convert html elment in object which javascript understand
@@ -79,6 +108,10 @@
 DOM Manupulation
 Window object
 Unary plus operator
+ * Set
+ * The Set object lets you store unique values of any type, whether primitive values or object references.
+ *
+ *
 Microtask
   Microtask is the javascript code which needs to be executed immediately after the currently executing task/microtask is completed. They are kind of blocking in nature. i.e, The main thread will be blocked until the microtask queue is empty. The main sources of microtasks are Promise.resolve, Promise.reject, MutationObservers, IntersectionObservers etc 
 Observable -
@@ -151,5 +184,62 @@ Paradigm
 
        
     JavaScript is a multi-paradigm language, supporting imperative/procedural programming, Object-Oriented Programming and functional programming. JavaScript supports Object-Oriented Programming with prototypical inheritance.
+decode or encode a URL in JavaScript
+    encodeURI() function is used to encode an URL. This function requires a URL string as a parameter and return that encoded string. decodeURI() function is used to decode an URL. This function requires an encoded URL string as parameter and return that decoded string.
+    Note: If you want to encode characters such as / ? : @ & = + $ # then you need to use encodeURIComponent().
+    let uri = "employeeDetails?name=john&occupation=manager";
+    let encoded_uri = encodeURI(uri);
+    let decoded_uri = decodeURI(encoded_uri);
+Memoization
+    Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results. Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache. Let's take an example of adding function with memoization,
+Modules
+   Modules refer to small units of independent, reusable code and also act as the foundation of many JavaScript design patterns. Most of the JavaScript modules export an object literal, a function, or a constructor
+   Below are the list of benefits using modules in javascript ecosystem
+    Maintainability
+    Reusability
+    Namespacing
+Service worker
+    A Service worker is basically a script (JavaScript file) that runs in the background, separate from a web page and provides features that don't need a web page or user interaction. Some of the major features of service workers are Rich offline experiences(offline first web application development), periodic background syncs, push notifications, intercept and handle network requests and programmatically managing a cache of responses.
+    navigator.serviceWoker()
+Strict mode
+    Strict mode is useful to write "secure" JavaScript by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
+Null and undefined
+    Undefined 
+    The undefined property indicates that a variable has not been assigned a value, or declared but not initialized at all. The type of undefined value is undefined too.
+        -It is not an assignment value where a variable has been declared but has not yet been assigned a value.
+        -Type of undefined is undefined
+        -The undefined value is a primitive value used when a variable has not been assigned a value.
+        -Indicates absence of variable itself
+        -Converted to NaN while performing primitive operations
+    Null 
+     - The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values. The type of null value is object. You can empty the variable by setting the value to null.
+        - Type of null is object	
+        -The null value is a primitive value that represents the null, empty, or non-existent reference.	
+        -Indicates the absence of a value for a variable	
+        -Converted to zero (0) while performing primitive operations	
 
+     var user = null;
+      console.log(typeof user); //object
+
+    It is an assignment value which indicates that variable points to no object.
+-web worker
+storage event and its event handler
+server-sent events - react
+service worker - react
+promises - new promises ,
+The double exclamation or negation(!!)
+history in javascript
+  window.history.back(), window.history.forward(
+
+  )
+Event flow
+    Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event for each of its parent elements first, starting at the top with the global window object. There are two ways of event flow
+
+    Top to Bottom(Event Capturing)
+    Bottom to Top (Event Bubbling)
+
+Os details
+   console.log(navigator.platform);
+Native object, Host object, user object
+  Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, String, Math, RegExp, Object, Function etc core objects defined in the ECMAScript spec. Host objects are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc are considered as host objects. User objects are objects defined in the javascript code. For example, User objects created for profile information.
 */

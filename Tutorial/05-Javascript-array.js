@@ -473,6 +473,15 @@ Object.entries(obj).forEach(([key, value]) => {
   console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
 });
 
+Dense array = it means each element of the array contain value is known as dense array
+Parse array = It means some elmenets are missing and considered undefined
+            careate parse array
+             1) [,,,]
+            2) array constructor  new Array(5)
+            3) array.lenght = 5
+            4) delete elemnt of the array delete array[index]
+
+            GroupBy, GroupBy
 */
 
 // ja

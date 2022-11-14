@@ -3,12 +3,13 @@ ES 6
 
    Es16 is advanced features of javascript which includes OOP.
  
- cosnt and let = var is global variable. Any where you can access it. But const and let block scoped variable. const and let are not hoisted but var is hoisted
- if you write var it is attached to window object.
- var is funciton scopped andl let const block scopped
- var overwriteable  and let and const not overwriable
- var hoisted  and let const not hoisted
- const will not allow to redeclare varialbe
+ A) cosnt and let = 
+        var is global variable. Any where you can access it. But const and let block scoped variable. const and let are not hoisted but var is hoisted
+        if you write var it is attached to window object.
+        var is funciton scopped andl let const block scopped
+        var overwriteable  and let and const not overwriable
+        var hoisted  and let const not hoisted
+        const will not allow to redeclare varialbe
       const person = {
         name:"Lijo John"
       }
@@ -204,6 +205,11 @@ This keyword in javascript
           const promise1 = Promise.resolve(123);
         8) Promise.then()
           The then() method returns a Promise. It takes up to two arguments: callback functions for the success and failure cases of the Promise.
+        9)easiest way to ignore promise errors
+          The easiest and safest way to ignore promise errors is void that error. This approach is ESLint friendly too.
+          await promise.catch((e) => void e);
+
+
     C)Promise chaining
         The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. Let's take an example of promise chaining for calculating the final result,
             new Promise(function (resolve, reject) {

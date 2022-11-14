@@ -1,4 +1,10 @@
 /* 
+Prototype = Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+Prototype chaining = 
+Prototype chaining is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
+The prototype on object instance is available through Object.getPrototypeOf(object) or **proto** property whereas prototype on constructors function is available through Object.prototy
+   
+
 Protop type
    constructor function = you want add one property. It will be avaialbe only one object instance. If you want to all object
    functonname.prototype.property name
@@ -11,7 +17,6 @@ Protop type
    This only work for one instance. 
    if you want all instances Objectname.prototype.color = "dfalk"'
    instance member and proptype member
-
    Object.key only show property. It will not proto type. for in looop will show all properyt
 
 
@@ -24,11 +29,7 @@ Protop type
 
  Whenever create new a new object is being created in javascript engine  and directly connected to proto-type
 
- Prototype chain
-   - 
 
-Proto-types
-   -Prototype is mechanism in javascript by which javascript inherit properities and methods from another object.
-   
+
 
 */

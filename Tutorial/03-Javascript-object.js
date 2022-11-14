@@ -163,6 +163,56 @@ Two ways we can build object
       fullName()
       We have learned that how this keyword behaves differently in JavaScript than in other object-oriented languages. The call, bind and apply methods can be used to set the this keyword independent of how a function is called.
 4B)
+    Map is a collection of elements where each element is stored as a Key, value pair. Map object can hold both objects and primitive values as either key or value. When we iterate over the map object it returns the key, value pair in the same order as inserted.
+  - There are two types of map . function map (That is used higher orde function) and second class map
+    Class map  is similar  to object but little bit advanced from object
+    Map key can any data type but object only string
+    Map has more features than object
+    Map has better perform that object
+    
+    //initiate new map object
+    const demo = new Map()
+    //add properties to to map object
+    demo.set("a",1)
+    demo.set("b",2)
+    demo.set("c",3)
+    demo.set(3,"d")
+    console.log(demo)
+    // get one property from object
+    console.log(demo.get("a"))
+    //delete one propery from object
+    console.log(demo.delete("a"))
+    //check wheather it has key or not. It gives boolean vlaue
+    console.log(demo.has("b"))
+    //check the size of the object
+    console.log(demo.size)
+
+    //iterate and get value
+    for(let keys of demo){
+        console.log(keys)
+    }
+    console.log(demo)
+    // iterable or not. This will nelp using next
+    let m = demo[Symbol.iterator]()
+    //this is get propery one by one 
+    console.log(m.next().value)
+    console.log(m.next().value)
+    //values
+    let n = demo.values()
+    console.log(n.next().value)
+    console.log(n.next().value)
+    console.log(n.next().value)
+    //keys
+    let o = demo.keys()
+    console.log(o.next().value)
+    console.log(o.next().value)
+    console.log(o.next().value)
+    //entries
+    //The entries() method returns a new iterator object that contains the [key, value] pairs for each element in the Map object in insertion order. 
+    let p = demo.entries()
+    console.log(p)
+    //foreach
+    demo.forEach((key,value)=>console.log(`key is ${key} and vlaue is ${value}`))
   Objects are similar to Maps in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
 
   1) The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
@@ -171,6 +221,52 @@ Two ways we can build object
   4) A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
   5) An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
   5)A Map may perform better in scenarios involving frequent addition and removal of key pairs.
+4C) Set
+  The Set object lets you store unique values of any type, whether primitive values or object references
+      let n = [1,2,3,3,3,3]
+      const m = new Set([...n])
+      //add new element and cannot add new array
+      m.add(8)
+      //chainable
+      m.add(9).add(10)
+      console.log(m)
+      //for of
+      for(values of m){
+          console.log(values)
+      }
+      //size
+      console.log(m.size)
+      //entries(This is will conver each element in to key values in array)
+      let p = m.entries()
+      for(values of p){
+          console.log(values)
+      }
+      console.log(p)
+
+      //foreach
+      p.forEach(item=>console.log(item))
+      //iterator
+      const iterator1 = m[Symbol.iterator]();
+      console.log(p.next().value)
+      console.log(iterator1.next().value)
+      console.log(iterator1.next().value)
+
+      //delete (second item will be deleted)
+      m.delete(2)
+      console.log(m)
+      //clear
+      m.clear(m)
+      console.log(m)
+4D) Globalsthis
+The global globalThis property contains the global this value, which is akin to the global object.
+   Javascript uses differnt syntax accessing global variable. In browser self, window or frames and Node it is global
+   this mode can be run using non-strict mode. if you use strict mode it will be undefiend
+   Globalthis is property which provide standard way of accessing the global this value
+   across enviroment
+4)Infinity 
+   -The global property Infinity is a numeric value representing infinity.
+   -Infinity is a property of the global object. In other words, it is a variable in global scope.  
+
 4C) Propertieds and methods
       1)Object.keys
          The Object.values() method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop. (The only difference is that a for...in loop enumerates properties in the prototype chain as well.)
@@ -282,7 +378,43 @@ Two ways we can build object
           The Object.defineProperties() method defines new or modifies existing properties directly on an object, returning the object.
 4B) for in loop & for of
      for in loop used loop through object propery. Object.key() Object.value similary. You can include expclue
-  
+      Both for...in and for...of statements iterate over js data structures. The only difference is over what they iterate:
+
+      for..in iterates over all enumerable property keys of an object
+      for..of iterates over the values of an iterable object.
+      Let's explain this difference with an example,
+      let arr = ["a", "b", "c"];
+
+      arr.newProp = "newVlue";
+
+      // key are the property keys
+      for (let key in arr) {
+        console.log(key);
+      }
+
+      // value are the property values
+      for (let value of arr) {
+        console.log(value);
+      }
+          for..in iterates over all enumerable property keys of an object
+          for..of iterates over the values of an iterable object. Examples of iterable objects are arrays, strings, and NodeLists.
+4C) Javascript iterable
+    Iterable objects are objects that can be iterated over with for..of.Technically, iterables must implement the Symbol.iterator method.
+    The iterator protocol defines how to produce a sequence of values from an object.
+        An object becomes an iterator when it implements a next() method.
+
+        The next() method must return an object with two properties:
+
+        value (the next value)
+        done (true or false)
+4D) Build in iterable
+  Below are the list of built-in iterables in javascript,
+  Arrays and TypedArrays
+  Strings: Iterate over each character or Unicode code-points
+  Maps: iterate over its key-value pairs
+  Sets: iterates over their elements
+  arguments: An array-like special variable in functions
+  DOM collection such as NodeList
 Object literal
 Oject contructure
 Construction function
