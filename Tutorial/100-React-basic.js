@@ -1,6 +1,45 @@
 /*
-React is open source javascricpt library buildilng user interfaces
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
+1)Introduction
+  React is an open-source front-end JavaScript library that is used for building user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps. React was created by Jordan Walke, a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
+2)Feature
+   It uses VirtualDOM instead of RealDOM considering that RealDOM manipulations are expensive.
+  Supports server-side rendering.
+  Follows Unidirectional data flow or data binding.(Efficency,Better control, Debuggingte)  Parent to child
+  Uses reusable/composable UI components to develop the view.
+3)JSX
+  JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
+  JSX converts HTML tags into react elements.
+  Basically it just provides syntactic sugar for the React.createElement() function, giving us expressiveness of JavaScript along with HTML like template syntax.
+4)React.element and components
+   1)Element
+     An Element is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components.
+   2)Component
+5)Differnt types of component
+   1)Functional component
+     This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as the first parameter and return React elements:
+   2)classbased component
+     You can also use ES6 class to define a component. The above function component can be written as:
+6)When to use a Class Component over a Function Component
+     Component which requires lifecycle hooks 
+     Error boundaries
+7)  Pure component
+    Boost permonace of component. Pure compoent will render besed on chages in shallow props and state comaparison. If no changes it will not render again. shouldComponentUpdate in regular component is false. In pure component, component will render based on shallow prorps and state comparison. It will avovid unnessary rerender.
+    This is just like normal component except it handles shouldCoponentUpdate() handles for you 
+    Shallow comparison
+          primitive types : a,b c, 1,3, returns true if value are the same
+          const x=  {name:"lijo", age:20} a = x it will be true. If any other object it will not true
+    
+8)State 
+    State of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
+    State is similar to props, but it is private and fully controlled by the component ,i.e., it is not accessible to any other component till the owner component decides to pass it.
+9)Synthatic events in react
+  
+
+
+
+
+
+  React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
 
 
 Advantage
@@ -197,13 +236,7 @@ Advanaced topics of React
     A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM
     key is only attribute you can pass through Fragment.div create css perfornce
 
-  Pure component
-    Boost permonace of component. Pure compoent will render besed on chages in shallow props and state comaparison. If no changes it will not render again. shouldComponentUpdate in regular component is false. In pure component, component will render based on shallow prorps and state comparison. It will avovid unnessary rerender. 
-    
 
-    Shallow comparison
-          primitive types : a,b c, 1,3, returns true if value are the same
-          const x=  {name:"lijo", age:20} a = x it will be true. If any other object it will not true
 
   Memo is function.
 
