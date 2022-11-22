@@ -123,9 +123,35 @@
 
 3)Recursion
      Recursion means function call itself
+     JSON.parse() and JSON.stringify() used recursive function
+     DOM traversal algoritham and document.getElementById
+     Obeject reversal
+
       Why = it help us solving bigger complex problem in a simple way
           = You can convert recursion solution into interation and viseversa
           =recursion and iteration (loop)
           = space complexicty
           = 1000 call means 1000 space in memory
+    Call stack
+       call stack is place where functions are called in order
+       if function invoked it will placed on top stak
+       when stack ses return it will be poped from the stack
+       -recursive functions are pushed into stack over and over 
+   Essestion for recursive function
+      -base case
+      -different input
+            Eg:let reduceNumber = (number)=>{
+            if(number<0){
+            return console.log("It is all over")
+            }
+            console.log(number)
+            number--
+            reduceNumber(number)
+            }
+            reduceNumber(30)
+  Pitfall
+     -Base case is wrong
+     - stack overflow = means call stack full
+Searching algorithams
+   
  */
